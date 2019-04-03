@@ -14,10 +14,11 @@ class AddFieldUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('address')->after('name');;
-            $table->unsignedBigInteger('age')->after('address');
+            $table->text('address')->after('name');
+            $table->string('avatar')->nullable()->after('address');
+            $table->unsignedBigInteger('age')->after('avatar');
             $table->enum('gender', ['Laki - Laki', 'Perempuan'])->after('age');
-            $table->text('bio')->after('gender');
+            $table->text('bio')->nullable()->after('gender');
         });
     }
 

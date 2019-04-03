@@ -18,8 +18,8 @@ class CreateComicsDaysTable extends Migration
             $table->unsignedBigInteger('day_id');
             $table->unsignedBigInteger('comic_id');
 
-            $table->foreign('day_id')->references('id')->on('days');
-            $table->foreign('comic_id')->references('id')->on('comics');
+            $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
+            $table->foreign('comic_id')->references('id')->on('comics')->onDelete('cascade');
         });
     }
 

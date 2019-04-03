@@ -9,7 +9,7 @@ class Episode extends Model
 
     public function comics()
     {
-        return $this->belongsTo('App\Comic', 'episode_id');
+        return $this->belongsToMany('App\Comic', 'comics_episodes', 'episode_id', 'comic_id');
     }
 
 }

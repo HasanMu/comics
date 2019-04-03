@@ -24,12 +24,16 @@ class Comic extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User', 'comics_users', 'user_id', 'comic_id');
+        return $this->belongsToMany('App\User', 'comics_users', 'comic_id', 'user_id');
     }
 
     public function episodes()
     {
-        return $this->hasMany('App\Episode', 'episode_id');
+        return $this->BelongsToMany('App\Episode', 'comics_episodes', 'comic_id', 'episode_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'comic_id');
+    }
 }
